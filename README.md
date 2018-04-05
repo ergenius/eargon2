@@ -46,11 +46,11 @@ authors), Jean-Philippe Aumasson and Samuel Neves, and dual licensed under the
 [CC0 License](https://creativecommons.org/about/cc0) and the
 [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
 
-The string encoding routines in [`src/encoding.c`](src/encoding.c) are
+The string encoding routines in [`phc-winner-argon2/blob/master/src/encoding.c`](src/encoding.c) are
 copyright (c) 2015 Thomas Pornin, and under
 [CC0 License](https://creativecommons.org/about/cc0).
 
-The BLAKE2 code in [`src/blake2/`](src/blake2) is copyright (c) Samuel
+The BLAKE2 code in [`phc-winner-argon2/blob/master/src/blake2/`](src/blake2) is copyright (c) Samuel
 Neves, 2013-2015, and under
 [CC0 License](https://creativecommons.org/about/cc0).
 
