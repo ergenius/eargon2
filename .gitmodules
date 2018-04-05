@@ -1,0 +1,3 @@
+[submodule "c_src/argon2"]
+	path = c_src/argon2
+	url = https://github.com/ergenius/phc-winner-argon2.git
