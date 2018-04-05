@@ -1,5 +1,5 @@
 # eArgon2
-Argon2 password hashing for Erlang.
+Argon2 password hashing wrapper for Erlang.
 
 Argon2 is a password-hashing function that summarizes the state of the
 art in the design of memory-hard functions and can be used to hash
