@@ -4,7 +4,4 @@ notifications:
   email: false
 otp_release:
   - 20.0
-  - 19.3
-  - 19.2
-  - 19.1
-  - 19.0
+
