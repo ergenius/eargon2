@@ -1,5 +1,25 @@
+%%%-------------------------------------------------------------------
+%%% eArgon2 - Erlang Argon2 password hashing
+%%%
+%%% Copyright 2018 Madalin Grigore-Enescu
+%%%
+%%% You may use this work under the terms of a Creative Commons CC0 1.0
+%%% License/Waiver or the Apache Public License 2.0, at your option. The terms of
+%%% these licenses can be found at:
+%%%
+%%% - CC0 1.0 Universal : http://creativecommons.org/publicdomain/zero/1.0
+%%% - Apache 2.0        : http://www.apache.org/licenses/LICENSE-2.0
+%%%
+%%% You should have received a copy of both of these licenses along with this
+%%% software. If not, they may be obtained at the above URLs.
+%%%-------------------------------------------------------------------
+
+-author("Madalin Grigore-Enescu").
 -module(eargon2).
+
 -include("eargon.hrl").
+
+-on_load(init/0).
 
 %% API exports
 -export([
@@ -18,6 +38,31 @@
     argon2_encodedlen/6
 
     ]).
+
+%% Not loaded macro
+-define(NIF_LIB_NOT_LOADED(), exit({nif_library_not_loaded, [{module, ?MODULE}, {line, ?LINE}]})).
+
+%% eArgon2 C library name
+-define(EARGON2_CLIB_NAME, eargon2).
+
+%%====================================================================
+%% INIT
+%%====================================================================
+
+%% Loads and links eArgon2 dynamic library containing native implemented functions (NIFs)
+init() ->
+    SoName = case code:priv_dir(?MODULE) of
+                 {error, bad_name} ->
+                     case filelib:is_dir(filename:join(["..", priv])) of
+                         true ->
+                             filename:join(["..", priv, ?EARGON2_CLIB_NAME]);
+                         _ ->
+                             filename:join([priv, ?EARGON2_CLIB_NAME])
+                     end;
+                 Dir ->
+                     filename:join(Dir, ?EARGON2_CLIB_NAME)
+             end,
+    erlang:load_nif(SoName, 0).
 
 %%====================================================================
 %% HASH
@@ -60,7 +105,7 @@ argon2_hash(TCost, MCost, Parallelism, Pwd, Salt, HashLen, Type) ->
 
 argon2_hash(TCost, MCost, Parallelism, Pwd, Salt, HashLen, Type, Version) ->
 
-    {error, "NIF library not loaded"}.
+    ?NIF_LIB_NOT_LOADED().
 
 %%====================================================================
 %% VERIFY
@@ -80,14 +125,13 @@ argon2id_verify(Encoded, Pwd) -> argon2_verify(Encoded, Pwd, ?HASH_TYPE_ARGON2_I
 %% generic function underlying the above ones
 argon2_verify(Encoded, Pwd, Type) ->
 
-    {error, "NIF library not loaded"}.
+    ?NIF_LIB_NOT_LOADED().
 
 %%====================================================================
 %% OTHER
 %%====================================================================
 
-%% Get the associated error message for given error code
-%% @return  The error message associated with the given error code
+%% Returns the error message associated with the given error code
 argon2_error_message(?ARGON2_ERROR_CODE_OK) -> "OK";
 argon2_error_message(?ARGON2_ERROR_CODE_OUTPUT_PTR_NULL) -> "Output pointer is NULL";
 argon2_error_message(?ARGON2_ERROR_CODE_OUTPUT_TOO_SHORT) -> "Output is too short";
@@ -136,4 +180,4 @@ argon2_error_message(_) -> "Unknown error code".
 %% @return  The encoded hash length in bytes
 argon2_encodedlen(TCost, MCost, Parallelism, Saltlen, HashLen, Type) ->
 
-    {error, "NIF library not loaded"}.
+    ?NIF_LIB_NOT_LOADED().
