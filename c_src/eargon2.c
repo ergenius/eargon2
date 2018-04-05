@@ -18,15 +18,15 @@
  * software. If not, they may be obtained at the above URLs.
  */
 
-#include "eargon2.h"
+#include "erl_nif.h"
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-#include "argon2/include/argon2.h"
-#include "argon2/src/encoding.h"
-#include "argon2/src/core.h"
+#include "argon2.h"
+#include "encoding.h"
+#include "core.h"
 
 static ERL_NIF_TERM argon2_encodedlen_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
 {

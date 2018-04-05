@@ -14,8 +14,8 @@
 %%% software. If not, they may be obtained at the above URLs.
 %%%-------------------------------------------------------------------
 
--author("Madalin Grigore-Enescu").
 -module(eargon2).
+-author("Madalin Grigore-Enescu").
 
 -include("eargon.hrl").
 
