@@ -1,0 +1,3 @@
+[submodule "argon2"]
+	path = argon2
+	url = git@github.com:ergenius/phc-winner-argon2.git
