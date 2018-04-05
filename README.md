@@ -29,7 +29,7 @@ Argon2i, Argon2d, and Argon2id are parametrized by:
 * A **memory** cost, which defines the memory usage, given in kibibytes
 * A **parallelism** degree, which defines the number of parallel threads
 
-The [Argon2 document](phc-winner-argon2/blob/master/argon2-specs.pdf) gives detailed specs and design
+The [Argon2 document](https://github.com/ergenius/phc-winner-argon2/blob/master/argon2-specs.pdf) gives detailed specs and design
 rationale.
 
 ## Intellectual property
@@ -46,11 +46,11 @@ authors), Jean-Philippe Aumasson and Samuel Neves, and dual licensed under the
 [CC0 License](https://creativecommons.org/about/cc0) and the
 [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
 
-The string encoding routines in [`argon2/src/encoding.c`](phc-winner-argon2/blob/master/src/encoding.c) are
+The string encoding routines in [`argon2/src/encoding.c`](https://github.com/ergenius/phc-winner-argon2/blob/master/src/encoding.c) are
 copyright (c) 2015 Thomas Pornin, and under
 [CC0 License](https://creativecommons.org/about/cc0).
 
-The BLAKE2 code in [`argon2/src/blake2/`](phc-winner-argon2/blob/master/src/blake2/) is copyright (c) Samuel
+The BLAKE2 code in [`argon2/src/blake2/`](https://github.com/ergenius/phc-winner-argon2/tree/master/src/blake2) is copyright (c) Samuel
 Neves, 2013-2015, and under
 [CC0 License](https://creativecommons.org/about/cc0).
 
