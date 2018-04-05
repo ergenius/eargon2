@@ -2,6 +2,8 @@
 
 Argon2 password hashing wrapper for Erlang.
 
+[![Build Status](https://api.travis-ci.org/ergenius/eargon2.svg?branch=master)](https://travis-ci.org/ergenius/eargon2)
+
 # Argon2
 
 Argon2 is a password-hashing function that summarizes the state of the
