@@ -1,0 +1,93 @@
+name: Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+
+  test_erlang_27_0_1:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:27.0.1
+    steps:
+    - uses: actions/checkout@v4
+    - name: Compile deps
+      run: make deps
+    - name: Compile
+      run: make compile
+    - name: Run tests
+      run: make test
+    - name: Clean
+      run: make clean
+
+  test_erlang_26_2_5:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:26.2.5
+    steps:
+    - uses: actions/checkout@v4
+    - name: Compile deps
+      run: make deps
+    - name: Compile
+      run: make compile
+    - name: Run tests
+      run: make test
+    - name: Clean
+      run: make clean      
+
+  test_erlang_25_3_2:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:25.3.2
+    steps:
+    - uses: actions/checkout@v4
+    - name: Compile deps
+      run: make deps
+    - name: Compile
+      run: make compile
+    - name: Run tests
+      run: make test
+    - name: Clean
+      run: make clean    
+
+  test_erlang_24_3_4:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:24.3.4
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run tests
+      run: make test
+
+  test_erlang_23_3_4:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:23.3.4
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run tests
+      run: make test
+
+  test_erlang_22_3_4:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:22.3.4
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run tests
+      run: make test      
+
+  test_erlang_21_3_8:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:21.3.8
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run tests
+      run: make test
